@@ -8,6 +8,7 @@ module.exports = function (grunt) {
         lynx: {
             options: {
                 url: 'http://www.mutatedcreativity.com',
+                dest: 'output/site.txt'
             }
         }
     });
