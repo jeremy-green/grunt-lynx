@@ -4,19 +4,35 @@ module.exports = function (grunt) {
 
     // Project configuration.
     grunt.initConfig({
-
-        lynx: {
-            options: {
-                url: 'http://www.mutatedcreativity.com',
-                dest: 'output/site.txt'
-            }
+      jshint: {
+        all: [
+          'Gruntfile.js',
+          'tasks/*.js'
+        ],
+        options: {
+          jshintrc: '.jshintrc',
+        },
+      },
+      lynx: {
+        options: {
+          auth: {
+            username: '',
+            password: ''
+          },
+          url: 'localhost',
+          dest: 'output/site.txt'
         }
+      }
     });
 
     // Actually load this plugin's task(s).
-    grunt.loadTasks('tasks');
+  grunt.loadTasks('tasks');
 
-    // By default, lint and run all tests.
-    grunt.registerTask('default', ['lynx']);
+  // These plugins provide necessary tasks.
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+
+  // By default, lint and run all tests.
+  grunt.registerTask('default', ['jshint']);
 
 };
