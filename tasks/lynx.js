@@ -19,6 +19,18 @@ module.exports = function (grunt) {
       args.push('-auth=' + options.auth.username + ':' + options.auth.password);
     }
 
+    if (options.head !== 'undefined' && options.head === true) {
+      args.push('-head');
+    }
+
+    if (options.listonly !== 'undefined' && options.listonly === true) {
+      args.push('-listonly');
+    }
+
+    if (options.useragent !== 'undefined') {
+      args.push('-useragent=' + options.useragent);
+    }
+
     args.push('-dump', options.url);
 
     grunt.util.spawn({
