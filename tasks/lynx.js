@@ -14,14 +14,7 @@ module.exports = function (grunt) {
     var done = this.async();
     var options = this.options();
     var args = [];
-
-    if (options.auth !== 'undefined') {
-      args.push('-auth=' + options.auth.username + ':' + options.auth.password);
-    }
-
-    if (options.head !== 'undefined' && options.head === true) {
-      args.push('-head');
-    }
+    var output = '-dump';
 
     if (options.listonly !== 'undefined' && options.listonly === true) {
       args.push('-listonly');
@@ -31,7 +24,29 @@ module.exports = function (grunt) {
       args.push('-useragent=' + options.useragent);
     }
 
-    args.push('-dump', options.url);
+    if (options.mimeHeader !== 'undefined' && options.mimeHeader === true) {
+      args.push('-mime_header');
+    }
+
+    /**
+     * @todo  hack to remove all other options but still allow auth -
+     *        in the future look for a more better way to push the vars
+     *        via node
+     */
+    if (options.head !== 'undefined' && options.head === true) {
+      args = [];
+      args.push('-head');
+    }
+
+    if (options.auth !== 'undefined') {
+      args.push('-auth=' + options.auth.username + ':' + options.auth.password);
+    }
+
+    if (options.source !== 'undefined' && options.source === true) {
+      output = '-source';
+    }
+
+    args.push(output, options.url);
 
     grunt.util.spawn({
       cmd: 'lynx',
