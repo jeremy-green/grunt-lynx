@@ -20,9 +20,9 @@ module.exports = function (grunt) {
       args.push('-listonly');
     }
 
-    if (options.useragent !== 'undefined') {
+    /*if (options.useragent !== 'undefined') {
       args.push('-useragent=' + options.useragent);
-    }
+    }*/
 
     if (options.mimeHeader !== 'undefined' && options.mimeHeader === true) {
       args.push('-mime_header');
@@ -36,6 +36,18 @@ module.exports = function (grunt) {
     if (options.head !== 'undefined' && options.head === true) {
       args = [];
       args.push('-head');
+    }
+
+    /*if (options.traceMask !== 'undefined') {
+      args.push('-tlog -trace', '-trace-mask=' + options.traceMask.join('||'));
+    }*/
+
+    if (options.noreferer !== 'undefined' && options.noreferer === true) {
+      args.push('-noreferer');
+    }
+
+    if (options.acceptAllCookies !== 'undefined' && options.acceptAllCookies === true) {
+      args.push('-accept_all_cookies');
     }
 
     if (options.auth !== 'undefined') {
