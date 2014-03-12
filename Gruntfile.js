@@ -15,11 +15,9 @@ module.exports = function (grunt) {
     },
     lynx: {
       options: {
-        auth: {
-          username: '',
-          password: ''
-        },
-        url: 'localhost',
+        args: ['-head'],
+        //output: '-source',
+        url: 'http://www.mutatedcreativity.com',
         dest: 'output/site.txt'
       }
     }
