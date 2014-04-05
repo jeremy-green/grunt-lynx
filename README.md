@@ -37,7 +37,7 @@ grunt.initConfig({
 #### args
 Type: `Array`
 
-An array of commandline arguments to pass to the Lynx browser.
+An array of commandline arguments to pass to the Lynx browser. For a list or available arguments, make sure Lynx is installed and run `man lynx`.
 
 #### output
 Type: `String`
