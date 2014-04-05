@@ -1,3 +1,11 @@
+/*
+ * grunt-lynx
+ * https://github.com/jeremy-green/grunt-lynx
+ *
+ * Copyright (c) 2014 Jeremy Green
+ * Licensed under the MIT license.
+ */
+
 'use strict';
 
 module.exports = function (grunt) {
@@ -16,8 +24,7 @@ module.exports = function (grunt) {
     lynx: {
       options: {
         args: ['-head'],
-        //output: '-source',
-        url: 'http://www.mutatedcreativity.com',
+        url: 'localhost',
         dest: 'output/site.txt'
       }
     }
